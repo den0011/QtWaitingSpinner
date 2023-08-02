@@ -22,7 +22,8 @@ WaitingSpinner — это настраиваемый виджет Qt с широ
 ## Пример использования:
 
 ```c++
-	WaitingSpinnerWidget * spinner = new WaitingSpinnerWidget(this);
+
+    WaitingSpinnerWidget * spinner = new WaitingSpinnerWidget(this);
 
     spinner->setRoundness(70.0);
     spinner->setMinimumTrailOpacity(15.0);
