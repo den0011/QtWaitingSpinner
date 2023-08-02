@@ -1,69 +1,43 @@
-QtWaitingSpinner
-================
+# WaitingSpinner
 
-QtWaitingSpinner is a highly configurable, custom Qt widget for showing "waiting" or "loading" spinner icons in Qt applications, e.g. the spinners below are all QtWaitingSpinner widgets differing only in their configuration:
+WaitingSpinner — это настраиваемый виджет Qt с широкими возможностями настройки для отображения значков «ожидания» или «загрузки» в приложениях Qt.
 
-![waiting spinner](https://github.com/snowwlex/QtWaitingSpinner/blob/gh-pages/waiting-spinners.gif)
 
-### Configuration
+<p align="center"><img src="img/waiting-spinners.gif" alt="waiting-spinners"/></p>
 
-The following properties can all be controlled directly through their corresponding setters:
+## Конфигурация
 
-* Colour of the widget
-* "Roundness" of the lines
-* Speed (rotations per second)
-* Number of lines to be drawn
-* Line length
-* Line width
-* Radius of the spinner's "dead space" or inner circle
-* The percentage fade of the "trail"
-* The minimum opacity of the "trail"
+Всеми следующими свойствами можно управлять напрямую через соответствующие установщики:
 
-### Usage
+- Цвет виджета
+- «Округлость» линий
+- Скорость (обороты в секунду)
+- Количество линий, которые необходимо нарисовать
+- Длина линии
+- Ширина линии
+- Радиус «мертвого пространства» или внутреннего круга спиннера
+- Процент затухания "шлейфа"
+- Минимальная непрозрачность «следа»
 
-Despite being highly configurable, QtWaitingSpinner is extremely easy to use and, to make things even easier, the "QtWaitingSpinnerTest" application can assist you in determining the exact shape, size and colour you'd like your spinner to have.
+## Пример использования:
 
-For example, the embedded spinner in the QtWaitingSpinnerTest screenshot below can be created as follows:
+```c++
+	WaitingSpinnerWidget * spinner = new WaitingSpinnerWidget(this);
 
-```
-  QtWaitingSpinner* spinner = new QtWaitingSpinner(this);
+    spinner->setRoundness(70.0);
+    spinner->setMinimumTrailOpacity(15.0);
+    spinner->setTrailFadePercentage(70.0);
+    spinner->setNumberOfLines(12);
+    spinner->setLineLength(10);
+    spinner->setLineWidth(5);
+    spinner->setInnerRadius(10);
+    spinner->setRevolutionsPerSecond(1);
+    spinner->setColor(QColor(81, 4, 71));
 
-  spinner->setRoundness(70.0);
-  spinner->setMinimumTrailOpacity(15.0);
-  spinner->setTrailFadePercentage(70.0);
-  spinner->setNumberOfLines(12);
-  spinner->setLineLength(10);
-  spinner->setLineWidth(5);
-  spinner->setInnerRadius(10);
-  spinner->setRevolutionsPerSecond(1);
-  spinner->setColor(QColor(81, 4, 71));
-
-  spinner->start(); // gets the show on the road!
-
+    spinner->start();
 ```
 
-![test dialog](https://github.com/snowwlex/QtWaitingSpinner/blob/gh-pages/test-dialog.png)
+## Тестовая сборка демонстрирует возможности и настройки
 
-As an alternative example, the code below will create a spinner that (1) blocks all user input to the main application for as long as the spinner is active, (2) automatically centres itself on its parent widget every time "start" is called and (3) makes use of the default shape, size and colour settings.
+<p align="center"><img src="img/test.jpg" alt="test"/></p>
 
-```
-	QtWaitingSpinner* spinner = new QtWaitingSpinner(this, Qt::ApplicationModal, true);
-	spinner->start(); // starts spinning
-```
-
-Please use [use this link](https://github.com/snowwlex/QtWaitingSpinner/issues) for feedback, requests or issues.
-
-Enjoy!
-
-### qt-pods
-
-QtWaitingSpinner is available as a pod within qt-pods. See here for reference:
-https://github.com/cybercatalyst/qt-pods
-
-### Thanks
-
-QtWaitingSpinner was inspired by the [spin.js](http://fgnass.github.io/spin.js/)  project.
-
-
-### Forks
-There is also [QtWaitingSpinner for Python!](https://github.com/z3ntu/QtWaitingSpinner) Thanks to [z3ntu](https://github.com/z3ntu) for porting it.
